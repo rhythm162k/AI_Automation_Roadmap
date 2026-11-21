@@ -1,0 +1,81 @@
+:root{color-scheme:dark;--bg:#121512;--panel:#1a1f1a;--line:#343d32;--text:#f2f5ee;--muted:#b3bdb0;--green:#baf778;--mono:ui-monospace,SFMono-Regular,Consolas,monospace;font-family:system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--text);font-size:16px;line-height:1.55}
+a{color:inherit}
+button,input,textarea{font:inherit}
+button,a,summary,label:has(input){cursor:pointer}
+button{color:inherit}
+:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.wrap{width:min(1136px,calc(100% - 56px));margin:auto}
+.top{border-bottom:1px solid var(--line)}
+.top-inner,.backup,.brand,.section-header,footer{display:flex;align-items:center;gap:12px}
+.top-inner,.section-header,footer{justify-content:space-between}
+.top-inner{min-height:76px}
+.brand{font:700 15px var(--mono);text-decoration:none}
+.logo{display:grid;place-items:center;background:var(--green);color:#162010;border-radius:9px;width:34px;height:34px;font-size:22px}
+.brand-sub{color:var(--muted);font-size:13px}
+.outline{background:transparent;border:1px solid var(--line);border-radius:9px;padding:7px 13px;font-size:14px}
+.outline:hover,.day:hover{background:#293328}
+.skip{position:absolute;top:-200px;left:16px}.skip:focus{top:12px;background:var(--panel);z-index:2;padding:12px}
+.hero{display:grid;grid-template-columns:1.85fr 1fr;gap:18px;margin-top:30px}
+.intro,.progress-card{border:1px solid var(--line);border-radius:19px;padding:clamp(22px,4vw,48px)}
+.intro{background:radial-gradient(ellipse at 100% 0%,#2b3e22 0%,transparent 64%),#1c231b}
+.eyebrow{font:700 13px/1.45 var(--mono);letter-spacing:.085em;margin:0}
+.dot{display:inline-block;width:8px;height:8px;margin-right:8px;border-radius:50%;background:var(--green)}
+h1,h2,h3,p{margin-top:0}
+h1{font-size:clamp(2.65rem,6vw,5.3rem);line-height:.97;letter-spacing:-.075em;margin:20px 0}
+h1 em{font-style:normal;color:var(--green)}
+.intro p,.secondary>p:not(.eyebrow){color:var(--muted);max-width:56ch;margin-bottom:0}
+.progress-card{background:var(--green);color:#172010;display:flex;flex-direction:column;justify-content:center}
+.progress-value{font-size:clamp(3.2rem,7vw,5.5rem);font-weight:800;letter-spacing:-.08em;line-height:1.2;margin:12px 0}
+progress{width:100%;height:10px;appearance:none;border:0;border-radius:10px;background:#8ebf5e;overflow:hidden;color:#243618}
+progress::-webkit-progress-bar{background:#8ebf5e}
+progress::-webkit-progress-value{background:#243618;border-radius:10px}
+progress::-moz-progress-bar{background:#243618}
+#progress-label{margin:12px 0 0;font-weight:600}
+.sections{display:flex;gap:24px;margin:24px 0 30px;border-bottom:1px solid var(--line)}
+.sections a{text-decoration:none;padding:12px 2px;border-bottom:2px solid transparent;color:var(--muted);font-weight:600}
+.sections a[aria-current]{border-color:var(--green);color:var(--green)}
+.accent{color:var(--green)}
+h2{font-size:clamp(1.85rem,4vw,2.55rem);letter-spacing:-.047em;line-height:1.12;margin:6px 0 0}
+.section-header{margin-bottom:18px}
+.workspace{display:grid;grid-template-columns:minmax(250px,1fr) minmax(0,2fr);gap:18px;align-items:start}
+.weeks,.lesson,.routine,.surface,.resource{background:var(--panel);border:1px solid var(--line);border-radius:15px}
+.weeks{padding:8px}
+.week+ .week{border-top:1px solid var(--line)}
+summary{padding:12px 10px;font-weight:680;font-size:15px}
+summary span{float:right;font:500 13px/1.8 var(--mono);color:var(--muted)}
+.day{display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:1px solid transparent;background:none;border-radius:8px;padding:8px;font-size:14px}
+.day[aria-current]{border-color:#577246;background:#2a3824;color:var(--green)}
+.day-mark{font:600 12px var(--mono);min-width:26px;color:var(--muted)}
+.day-mark.done{color:var(--green)}
+.lesson{padding:clamp(18px,3vw,32px)}
+.lesson h3{font-size:clamp(1.55rem,4vw,2.1rem);letter-spacing:-.045em;line-height:1.13;margin:8px 0 21px}
+.exercise{background:#222b20;border-left:3px solid var(--green);padding:13px 15px;margin-bottom:16px;border-radius:0 8px 8px 0}
+.exercise p{margin:4px 0 0}
+.resource-link{display:inline-block;color:var(--green);text-underline-offset:4px;margin-bottom:18px}
+.note-label{display:block;font-weight:650;margin-bottom:7px}
+textarea{display:block;width:100%;min-height:98px;resize:vertical;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px}
+.lesson-actions{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:9px;margin-top:18px}
+.step-buttons{display:flex;gap:7px}
+button:disabled{opacity:.45;cursor:default}
+.primary{border:1px solid var(--green);background:var(--green);color:#172010;border-radius:9px;padding:8px 13px;font-size:14px;font-weight:700}
+.primary[aria-pressed=true]{background:transparent;color:var(--green)}
+.routine{margin-top:14px;padding:0 12px}
+.routine p{margin:0 10px 13px;color:var(--muted)}
+.secondary>p:not(.eyebrow){margin-top:12px}
+.surface{padding:20px;margin-top:16px}
+.surface h3{margin-bottom:10px}
+.surface p{margin-bottom:0}
+.criterion{display:flex;gap:12px;align-items:flex-start;padding:10px 0}
+.criterion+.criterion{border-top:1px solid var(--line)}
+input[type=checkbox]{width:18px;height:18px;flex:none;accent-color:var(--green);margin-top:4px}
+.resources{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:20px}
+.resource{display:block;padding:16px;text-decoration:none}
+.resource:hover{border-color:var(--green)}
+.resource span{display:block;color:var(--green);font:600 13px var(--mono);margin-bottom:6px}
+footer{padding:18px 0;margin-top:32px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+.status{position:fixed;bottom:15px;right:15px;margin:0;background:#2f4327;border:1px solid #6d9657;border-radius:8px;padding:10px 14px;max-width:calc(100% - 30px);z-index:3}
+@media(max-width:720px){.wrap{width:calc(100% - 30px)}.hero{grid-template-columns:1fr;gap:10px;margin-top:16px}.workspace{grid-template-columns:1fr}.lesson-stack{grid-row:1}.progress-value{margin:3px 0}.section-header{align-items:flex-start;flex-direction:column}.brand-sub{display:none}}
+@media(max-width:430px){.resources{grid-template-columns:1fr}.top-inner{min-height:62px}.sections{gap:18px}.backup{gap:5px}.outline{padding-inline:9px}}
