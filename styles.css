@@ -7,6 +7,11 @@
   --line: #dedee4;
   --accent: #5135b2;
   --tint: #eeebfa;
+  --page-gutter: clamp(16px, 4vw, 32px);
+  --section-gap: 24px;
+  --card-gap: 16px;
+  --card-padding: 20px;
+  --control-height: 40px;
   --mono: ui-monospace, "SF Mono", Consolas, monospace;
   background: var(--bg);
   color: var(--ink);
@@ -59,7 +64,7 @@ h3 {
 }
 .wrap {
   margin-inline: auto;
-  width: min(1120px, calc(100% - 64px));
+  width: min(1120px, calc(100% - 2 * var(--page-gutter)));
 }
 .skip {
   position: absolute;
@@ -92,20 +97,25 @@ footer {
   gap: 16px;
 }
 .top-inner {
-  min-height: 66px;
+  min-height: 64px;
 }
 .brand {
-  gap: 10px;
+  gap: 8px;
   font-weight: 750;
+  line-height: 1.35;
   text-decoration: none;
-  white-space: nowrap;
 }
 .sections {
+  align-self: stretch;
+  align-items: stretch;
   gap: clamp(12px, 3vw, 36px);
 }
 .sections a {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   border-bottom: 2px solid transparent;
-  padding: 20px 0 18px;
+  padding-top: 2px;
   color: var(--muted);
   font-size: 0.92rem;
   text-decoration: none;
@@ -126,7 +136,8 @@ footer {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--paper);
-  padding: 8px 13px;
+  min-height: var(--control-height);
+  padding: 8px 12px;
   font-weight: 600;
   font-size: 0.875rem;
 }
@@ -138,7 +149,7 @@ footer {
 .primary {
   border-color: var(--accent);
   background: var(--accent);
-  padding-inline: 17px;
+  padding-inline: 16px;
   color: white;
 }
 .primary:hover {
@@ -150,12 +161,13 @@ footer {
 }
 .hero {
   display: grid;
-  grid-template-columns: 1.32fr 1fr;
+  grid-template-columns: minmax(0, 1.32fr) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(24px, 6vw, 82px);
-  padding: clamp(34px, 6vw, 76px) 0 clamp(36px, 5vw, 64px);
+  gap: clamp(24px, calc(12vw - 64px), 80px);
+  padding-block: clamp(32px, 6vw, 76px) clamp(24px, 5vw, 64px);
 }
 .app-logo {
+  flex: none;
   width: 32px;
   height: 32px;
 }
@@ -168,10 +180,11 @@ footer {
   color: var(--accent);
 }
 .intro h1 {
-  margin: 15px 0 18px;
+  margin-block: 16px 20px;
   font-size: clamp(2.85rem, 6vw, 5.05rem);
   line-height: 1;
   letter-spacing: -0.075em;
+  overflow-wrap: anywhere;
 }
 .intro em {
   color: var(--accent);
@@ -187,10 +200,10 @@ footer {
   border: 1px solid #dcd5f2;
   border-radius: 17px;
   background: var(--tint);
-  padding: clamp(19px, 3vw, 29px);
+  padding: clamp(var(--card-padding), 3vw, 28px);
 }
 .resume-card h2 {
-  margin: 7px 0;
+  margin-block: 8px;
   font-size: clamp(1.45rem, 3vw, 2rem);
 }
 .resume-card .primary {
@@ -198,16 +211,20 @@ footer {
 }
 .progress-card {
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 7px 12px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 8px 12px;
   margin-top: 20px;
   border-top: 1px solid #dcd5f2;
-  padding-top: 14px;
+  padding-top: 16px;
   font-size: 0.875rem;
 }
 #percent {
   color: var(--accent);
   font-weight: 750;
+}
+#hours-label {
+  grid-column: 1 / -1;
 }
 progress {
   display: block;
@@ -231,7 +248,7 @@ progress::-moz-progress-bar {
 }
 .browse {
   border-top: 1px solid var(--line);
-  padding-top: 25px;
+  padding-top: var(--section-gap);
 }
 .section-header h2,
 .secondary h2 {
@@ -260,7 +277,7 @@ progress::-moz-progress-bar {
 .resources {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  gap: var(--card-gap);
 }
 .card,
 .resource,
@@ -286,14 +303,14 @@ progress::-moz-progress-bar {
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding: 18px;
+  padding: var(--card-padding);
 }
 .card-meta {
   color: var(--accent);
   text-transform: uppercase;
 }
 .card h3 {
-  margin: 7px 0 8px;
+  margin-block: 8px;
   font-size: 1.22rem;
 }
 .card-task {
@@ -305,7 +322,7 @@ progress::-moz-progress-bar {
   justify-content: space-between;
   gap: 4px 12px;
   margin-top: auto;
-  padding-top: 15px;
+  padding-top: 16px;
   color: var(--muted);
   font-size: 0.82rem;
 }
@@ -314,55 +331,69 @@ progress::-moz-progress-bar {
   font-weight: 650;
 }
 .card-preview {
-  margin: 9px 9px 0;
+  margin: 8px 8px 0;
   border-radius: 9px;
   background: var(--tint);
   padding: 16px;
 }
 .card-preview p {
-  margin-top: 5px;
+  margin-top: 4px;
 }
 .day-view,
 .secondary {
-  padding-top: clamp(24px, 5vw, 54px);
-}
-.day-view,
-.secondary {
+  padding-top: clamp(var(--section-gap), 5vw, 52px);
   margin-inline: auto;
   max-width: 800px;
 }
-.back-link,
-.resource-link {
+.back-link {
   display: inline-block;
   color: var(--accent);
   text-underline-offset: 4px;
-}
-.back-link {
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   font-weight: 650;
 }
 .lesson {
-  padding: clamp(19px, 5vw, 40px);
+  padding: clamp(var(--card-padding), 5vw, 40px);
 }
 .lesson h1 {
-  margin: 8px 0 22px;
+  margin-top: 8px;
   font-size: clamp(1.9rem, 5vw, 3rem);
 }
+.lesson h2 {
+  margin-top: var(--section-gap);
+  font-size: 1.2rem;
+}
+.lesson h2 + * {
+  margin-top: 12px;
+}
+.topic-list {
+  margin-bottom: 0;
+  padding-inline-start: 20px;
+}
+.lesson-resources,
+.resource-links {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
 .exercise {
-  margin-bottom: 16px;
+  margin-top: var(--section-gap);
   border-radius: 8px;
   background: var(--tint);
-  padding: 15px;
+  padding: 16px;
+}
+.exercise + .exercise {
+  margin-top: 12px;
 }
 .exercise p {
   margin-top: 4px;
 }
-.resource-link {
-  margin-bottom: 22px;
+.study-block p {
+  margin-top: 4px;
 }
 .note-label {
   display: block;
-  margin-bottom: 7px;
+  margin-block: var(--section-gap) 8px;
   font-weight: 650;
 }
 textarea {
@@ -370,7 +401,7 @@ textarea {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--bg);
-  padding: 11px;
+  padding: 12px;
   width: 100%;
   min-height: 108px;
   resize: vertical;
@@ -380,12 +411,14 @@ textarea {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   margin-top: 16px;
 }
 .routine {
-  margin-top: 14px;
   padding-inline: 16px;
+}
+.challenge-guide {
+  margin-bottom: var(--section-gap);
 }
 .routine summary {
   padding: 12px 0;
@@ -393,6 +426,7 @@ textarea {
 }
 .routine summary span {
   float: right;
+  margin-inline-start: 12px;
   color: var(--muted);
   font-size: 0.9rem;
 }
@@ -400,32 +434,46 @@ textarea {
   margin-bottom: 12px;
   color: var(--muted);
 }
+.challenge-guide ol {
+  margin-block: 0 16px;
+  padding-inline-start: 24px;
+}
+.challenge-guide li + li {
+  margin-top: 8px;
+}
 .secondary h2 {
-  margin: 5px 0 12px;
+  margin-block: 8px 12px;
 }
 .surface,
 .resource {
-  padding: 18px;
+  padding: var(--card-padding);
 }
 .surface,
 .resources,
 .project-preview {
-  margin-top: 16px;
+  margin-top: var(--section-gap);
 }
 .surface h3 {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .criterion {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
-  padding: 10px 0;
+  gap: 12px;
+  padding-block: 12px;
 }
 .criterion + .criterion {
   border-top: 1px solid var(--line);
 }
+.surface .criterion:first-child {
+  padding-top: 0;
+}
+.criterion:last-child {
+  padding-bottom: 0;
+}
 input[type="checkbox"] {
   flex: none;
+  margin: 3px 0 0;
   width: 18px;
   height: 18px;
   accent-color: var(--accent);
@@ -440,9 +488,26 @@ input[type="checkbox"] {
   color: var(--accent);
   font: 700 0.8rem var(--mono);
 }
+.resource-group {
+  display: grid;
+  align-content: start;
+  gap: var(--card-gap);
+  min-width: 0;
+}
+@supports (grid-template-rows: subgrid) {
+  @media (min-width: 571px) {
+    .resource-group {
+      grid-row: span 2;
+      grid-template-rows: subgrid;
+    }
+    .resources {
+      row-gap: var(--section-gap);
+    }
+  }
+}
 .project-preview {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   border: 1px solid #dcd5f2;
   border-radius: 14px;
@@ -452,7 +517,7 @@ input[type="checkbox"] {
 .project-preview div {
   display: grid;
   align-content: start;
-  gap: 6px;
+  gap: 8px;
   background: var(--tint);
   padding: 16px;
 }
@@ -460,9 +525,10 @@ input[type="checkbox"] {
   color: var(--accent);
 }
 footer {
+  flex-wrap: wrap;
   margin-top: 32px;
   border-top: 1px solid var(--line);
-  padding: 18px 0;
+  padding-block: 20px;
   color: var(--muted);
   font-size: 0.875rem;
 }
@@ -473,35 +539,34 @@ footer {
   border: 1px solid var(--accent);
   border-radius: 8px;
   background: var(--tint);
-  padding: 10px 14px;
+  padding: 12px 16px;
   max-width: calc(100% - 32px);
 }
 @media (max-width: 820px) {
-  .hero {
-    gap: 24px;
-  }
   .gallery,
   .resources {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
   .top-inner {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 0 10px;
-    padding-top: 10px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 4px 12px;
+    padding-top: 8px;
   }
   .sections {
     grid-row: 2;
     grid-column: 1 / -1;
+    flex-wrap: wrap;
+    gap: 0 16px;
   }
-  .sections a {
-    padding-block: 10px;
+}
+@media (max-width: 680px) {
+  .hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
 }
 @media (max-width: 570px) {
-  .wrap {
-    width: calc(100% - 32px);
-  }
   body {
     line-height: 1.65;
   }
@@ -511,37 +576,19 @@ footer {
     line-height: 1.22;
     letter-spacing: -0.02em;
   }
-  .top-inner {
-    grid-template-columns: minmax(0, 1fr) auto;
-    row-gap: 4px;
-  }
-  .hero,
   .gallery,
   .resources,
   .project-preview {
     grid-template-columns: minmax(0, 1fr);
   }
-  .hero {
-    gap: 28px;
-  }
   .intro h1 {
     margin-block: 12px 16px;
-    font-size: clamp(2.25rem, 10vw, 3.5rem);
+    font-size: clamp(2.25rem, calc(1.5rem + 4vw), 2.85rem);
     line-height: 1.08;
     letter-spacing: -0.035em;
   }
   .brand {
-    gap: 8px;
     font-size: 0.9rem;
-    line-height: 1.35;
-    white-space: normal;
-  }
-  .app-logo {
-    flex: none;
-  }
-  .sections {
-    flex-wrap: wrap;
-    gap: 0 16px;
   }
   .backup {
     gap: 4px;
@@ -553,33 +600,20 @@ footer {
     flex-wrap: wrap;
     gap: 4px 12px;
   }
-  .filter {
-    padding: 8px 12px;
-  }
-  .gallery,
-  .resources {
-    gap: 16px;
-  }
-  .resume-card,
-  .card-body,
-  .lesson,
-  .surface,
-  .resource {
-    padding: 20px;
-  }
-  .resume-card h2,
-  .card h3 {
-    margin-block: 8px 12px;
-  }
-  .card-preview p,
-  .exercise p {
-    margin-top: 8px;
-  }
   .step-buttons {
     flex-wrap: wrap;
   }
-  footer {
-    flex-wrap: wrap;
+}
+@media (max-width: 448px) {
+  .routine summary span {
+    float: none;
+    display: block;
+    margin-inline-start: 16px;
+  }
+}
+@media (pointer: coarse) {
+  :root {
+    --control-height: 44px;
   }
 }
 

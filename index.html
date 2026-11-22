@@ -6,10 +6,14 @@
     <meta name="theme-color" content="#f7f7f3" />
     <meta
       name="description"
-      content="A 40-day guided roadmap for practical AI automation, with daily exercises and a read-only GitHub PR assistant capstone."
+      content="A 40-day, 200-hour software engineering challenge with practical lessons, evidence and a read-only PR assistant capstone."
     />
-    <link rel="icon" type="image/png" href="./public/icons8-bot-50.svg" />
-    <title>AI Automation Roadmap</title>
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="./public/icons8-developer.svg"
+    />
+    <title>Software Engineering Roadmap</title>
     <link rel="stylesheet" href="./styles.css" />
     <script defer src="./plan.js"></script>
     <script defer src="./app.js"></script>
@@ -18,14 +22,16 @@
     <a class="skip" href="#main">Skip to content</a>
     <header class="top">
       <div class="wrap top-inner">
-        <div class="brand">
+        <a class="brand" href="#roadmap">
           <img
             class="app-logo"
-            src="./public/icons8-bot-50.svg"
-            alt="app-logo"
+            src="./public/icons8-developer.svg"
+            alt=""
+            width="32"
+            height="32"
           />
-          <a class="brand" href="#roadmap"> Automation Roadmap </a>
-        </div>
+          Engineering Roadmap
+        </a>
 
         <nav class="sections" aria-label="Learning dashboard">
           <a data-page="roadmap" href="#roadmap">Roadmap</a
@@ -48,11 +54,12 @@
       <section id="roadmap">
         <div class="hero">
           <div class="intro">
-            <p class="eyebrow">40 DAYS · NOV 22 – DEC 31, 2026</p>
-            <h1>AI Automation<br /><em>Roadmap</em></h1>
+            <p class="eyebrow">40 DAYS · 5 HOURS DAILY · 200 HOURS</p>
+            <h1>Software Engineering<br /><em>Roadmap</em></h1>
             <p>
-              Practice workflows with JavaScript, TypeScript, n8n, and AI. Put
-              them together in a read-only GitHub pull-request assistant.
+              Build on your TypeScript, React, Node and Docker experience. Use
+              EMS as a practice case and finish with a read-only GitHub
+              pull-request assistant.
             </p>
           </div>
           <div class="resume-card">
@@ -69,9 +76,43 @@
                 value="0"
                 aria-label="Completed learning days"
               ></progress>
+              <p id="hours-label"></p>
             </div>
           </div>
         </div>
+        <details class="routine challenge-guide">
+          <summary>
+            Challenge schedule and milestones <span>200 hours</span>
+          </summary>
+          <p>
+            Every day has five hours of study. Take breaks outside those five
+            hours. Check off each completed block, save evidence in your notes,
+            and mark the day complete when you can answer its teach-back
+            question.
+          </p>
+          <ol>
+            <li>
+              <strong>Days 1–8.</strong> Write a decision record and trace a
+              request across the network.
+            </li>
+            <li>
+              <strong>Days 9–18.</strong> Classify and write tests, diagnose a
+              failure, recover a Compose stack and build CI.
+            </li>
+            <li>
+              <strong>Days 19–25.</strong> Map and operate an AWS-style
+              deployment, threat-model EMS and design for failure.
+            </li>
+            <li>
+              <strong>Days 26–35.</strong> Build automation, direct and evaluate
+              AI agents, and practice communication and negotiation.
+            </li>
+            <li>
+              <strong>Days 36–40.</strong> Build, verify, package and
+              demonstrate a read-only PR assistant.
+            </li>
+          </ol>
+        </details>
         <section class="browse" aria-labelledby="gallery-title">
           <div class="section-header">
             <h2 id="gallery-title" tabindex="-1">Browse lessons</h2>
@@ -81,7 +122,7 @@
             id="filters"
             class="filters"
             role="group"
-            aria-label="Filter lessons by module"
+            aria-label="Filter lessons by section"
           ></div>
           <div id="gallery" class="gallery"></div>
         </section>
@@ -90,29 +131,11 @@
         <a id="back-to-gallery" class="back-link" href="#roadmap"
           >All lessons</a
         >
-        <div class="lesson-stack">
-          <section
-            id="lesson"
-            class="lesson"
-            aria-labelledby="lesson-title"
-          ></section>
-          <details class="routine">
-            <summary>Daily study routine <span>60–90 min</span></summary>
-            <p>
-              <strong>Core 60 minutes.</strong> Learn for 15 min, practice for
-              30 min, then apply it to your project for 15 min.
-            </p>
-            <p>
-              <strong>Optional 30 minutes.</strong> Spend 15 min experimenting
-              and 15 min on notes or cleanup.
-            </p>
-            <p>
-              Save one tangible result each day, such as a diagram, working
-              request, small script, test, or brief note. You can use mock AI
-              responses until you choose an API budget.
-            </p>
-          </details>
-        </div>
+        <section
+          id="lesson"
+          class="lesson"
+          aria-labelledby="lesson-title"
+        ></section>
       </div>
       <section id="project" class="secondary" hidden>
         <p class="eyebrow accent">DAYS 36–40</p>
@@ -140,6 +163,15 @@
           <h3>Acceptance checklist</h3>
           <div id="checklist"></div>
         </div>
+        <div class="surface">
+          <h3>After Day 40</h3>
+          <p>
+            Rank your unfinished topics by relevance to the jobs you want and
+            where you still need help. Pick one skill each week, ship one small
+            change and write down the result. Revisit your Day 1 brief and Day
+            35 decision record after 30 days to see how your reasoning changed.
+          </p>
+        </div>
         <div class="surface note">
           <h3>Human review and repository access</h3>
           <p>
@@ -152,7 +184,10 @@
       <section id="resources" class="secondary" hidden>
         <p class="eyebrow accent">REFERENCE LIBRARY</p>
         <h2>Learning resources</h2>
-        <p>Official guides and lessons from the learning plan.</p>
+        <p>
+          Videos, documentation and interactive practice, grouped by section.
+          Each lesson points to the resources that support its exercise.
+        </p>
         <div id="resource-list" class="resources"></div>
       </section>
       <footer>
