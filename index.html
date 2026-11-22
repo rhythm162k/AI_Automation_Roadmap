@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#161a16">
+<meta name="theme-color" content="#f7f7f3">
 <meta name="description" content="A 40-day guided roadmap for practical AI automation, with daily exercises and a read-only GitHub PR assistant capstone.">
 <title>AI Automation Roadmap</title>
 <link rel="stylesheet" href="./styles.css">
@@ -13,19 +13,37 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="wrap top-inner">
-<a class="brand" href="#roadmap"><span class="logo" aria-hidden="true">✳</span> BUILD MODE <span class="brand-sub">/ LEARNING LAB</span></a>
+<a class="brand" href="#roadmap"><span class="logo" aria-hidden="true">✳</span> Automation Roadmap</a>
+<nav class="sections" aria-label="Learning dashboard"><a data-page="roadmap" href="#roadmap">Roadmap</a><a data-page="project" href="#project">Final project</a><a data-page="resources" href="#resources">Resources</a></nav>
 <div class="backup"><button id="export" class="outline">Export</button><button id="import" class="outline">Import</button><input type="file" id="file" accept=".json,application/json" hidden></div>
 </div></header>
 <main id="main" class="wrap">
-<section class="hero">
-<div class="intro"><div class="eyebrow"><span class="dot"></span> NOV 22 – DEC 31, 2026</div><h1>AI Automation<br><em>Roadmap.</em></h1><p>40 days of practical workflows with JavaScript, TypeScript, n8n, and AI. Build toward a read-only GitHub pull-request assistant.</p></div>
-<div class="progress-card"><p class="eyebrow">OVERALL PROGRESS</p><div class="progress-value" id="percent">0%</div><progress id="progress" max="40" value="0" aria-label="Completed learning days"></progress><p id="progress-label">0 of 40 days complete</p></div>
+<section id="roadmap">
+<div class="hero">
+  <div class="intro">
+    <p class="eyebrow">40 DAYS · NOV 22 – DEC 31, 2026</p>
+    <h1>AI Automation<br><em>Roadmap</em></h1>
+    <p>Practice workflows with JavaScript, TypeScript, n8n, and AI. Put them together in a read-only GitHub pull-request assistant.</p>
+  </div>
+  <div class="resume-card">
+    <p class="eyebrow" id="resume-label">UP NEXT</p>
+    <h2 id="resume-title"></h2>
+    <p id="resume-task"></p>
+    <button class="primary" id="resume">Resume lesson</button>
+    <div class="progress-card">
+      <p id="progress-label">0 of 40 days complete</p><span id="percent">0%</span>
+      <progress id="progress" max="40" value="0" aria-label="Completed learning days"></progress>
+    </div>
+  </div>
+</div>
+<section class="browse" aria-labelledby="gallery-title">
+  <div class="section-header"><h2 id="gallery-title" tabindex="-1">Browse lessons</h2><span id="lesson-count" role="status"></span></div>
+  <div id="filters" class="filters" role="group" aria-label="Filter lessons by module"></div>
+  <div id="gallery" class="gallery"></div>
 </section>
-<div class="sections" aria-label="Learning dashboard"><a data-page="roadmap" href="#roadmap">Roadmap</a><a data-page="project" href="#project">Final project</a><a data-page="resources" href="#resources">Resources</a></div>
-<div id="roadmap">
-<div class="section-header"><div><p class="eyebrow accent">THE 40-DAY PLAN</p><h2>Your learning plan</h2></div><button class="outline" id="resume">Go to next unfinished day</button></div>
-<div class="workspace">
-<aside class="weeks" id="weeks" aria-label="Roadmap weeks"></aside>
+</section>
+<div id="day-view" class="day-view" hidden>
+<a id="back-to-gallery" class="back-link" href="#roadmap">All lessons</a>
 <div class="lesson-stack"><section id="lesson" class="lesson" aria-labelledby="lesson-title"></section>
 <details class="routine"><summary>Daily study routine <span>60–90 min</span></summary>
 <p><strong>Core 60 minutes.</strong> Learn for 15 min, practice for 30 min, then apply it to your project for 15 min.</p>
@@ -33,10 +51,14 @@
 <p>Save one tangible result each day, such as a diagram, working request, small script, test, or brief note. You can use mock AI responses until you choose an API budget.</p>
 </details></div>
 </div>
-</div>
 <section id="project" class="secondary" hidden>
 <p class="eyebrow accent">DAYS 36–40</p><h2>Build a GitHub PR assistant</h2>
 <p>Collect pull-request details, summarize changes, highlight potential concerns, and suggest tests. Keep a human in control of review decisions.</p>
+<div class="project-preview" aria-label="Project workflow">
+  <div><strong>Read the PR</strong><span>Collect its description and changed-file metadata.</span></div>
+  <div><strong>Generate a review</strong><span>Summarize changes, concerns, and suggested tests.</span></div>
+  <div><strong>Hand off to a human</strong><span>Review the suggestions before taking action.</span></div>
+</div>
 <div class="surface"><h3>Acceptance checklist</h3><div id="checklist"></div></div>
 <div class="surface note"><h3>Human review and repository access</h3><p>Use a test repository and read-only access. Treat AI review suggestions as leads for human review. Get permission before sending private code to an AI service.</p></div>
 </section>
